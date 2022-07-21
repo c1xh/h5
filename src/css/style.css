@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+.page{
+    min-height: 100vh;
+    background-color: #F7F7F7;
+}
+.head{
+    position: relative;
+    overflow:auto;
+    min-height: 30rem;
+    max-height: 50rem;
+    background-size: 100% 100%;
+    background-image: url('../img/bg-top.png');
+} 
+.connect{
+    float: right;
+    font-size: 2rem;
+    color:#fff;
+    margin-right: 2rem;
+    margin-top: 3.5rem;
+    margin-bottom: 2rem;
+    border: 2px solid #fff;
+    padding: 10px;
+    border-radius: 2rem;
+}
+.image_1{
+    float: right;
+    margin-right: 4rem;
+    margin-top: 7.5rem;
+}
+.text-wrapper_1 {
+    width: 77.87vw;
+    margin-left: 2.8rem;
+    float: left;
+    word-break: break-word
+}
+  
+.text_1 {
+    min-width: 34.27vw;
+    max-width: 75vw;
+    color: rgba(255, 255, 255, 1);
+    font-size: 5.46vw;
+    font-family: PingFang-SC-Heavy;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    text-decoration: underline; 
+}
+.text-wrapper_2{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+.text_2 {
+    color: rgba(255, 255, 255, 1);
+    font-size: 8.8vw;
+    font-family: PingFang-SC-Heavy;
+    text-align: left;
+    line-height: 8.8vw;
+    word-wrap: break-word; 
+}
+.text_3 {
+    color: rgba(255, 255, 255, 1);
+    font-size: 3.86vw;
+    font-family: PingFang-SC-Light;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 3.87vw;
+    margin-left: 1.5rem;
+}
+.title{
+    margin-top: 4.58rem;
+    margin-left: 2.33rem;
+}
+.text_4{
+    width: 8.92rem;
+    height: 1.17rem;
+    font-size: 1.48rem;
+    font-family: PingFang SC;
+    font-weight: 800;
+    color: #000000;
+    line-height: 2.96rem;
+}
+.deposit_out{
+    display: flex;
+    justify-content: center;
+}
+.deposit{
+    display: flex;
+    align-items: center;
+    height: 10rem;
+    width: 58rem;
+    background-color: #fff;
+    border-radius: 40px;
+    margin-bottom: 20rem;
+}
+.image_2{
+    width: 100%;
+    margin-bottom:7rem ;
+    margin-top: 1rem;
+}
+.image_3{
+    height: 4rem;
+    margin-bottom: 2rem;
+}
+.image_4{
+  height: 6rem;
+  width: 6rem;
+  margin-left: 2rem
+}
+.text_5{
+  margin-left: 2rem;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.text_6{
+  margin-left: 30rem;
+  color: #7D7D7D;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.foot{
+    min-height: 6.15rem;
+    width: 100%;
+    background-image: url('../img/bg-foot.png');
+    background-size: 100% 100%;
+    position: fixed;
+    bottom: 0;
+}
+/* 对弹出框样式进行修改 */
+.van-dialog{
+    width: 50rem!important;
+    height: 22rem!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 3rem !important;
+}
+.van-dialog__header{
+    line-height: 81px !important;
+}
+.van-cell{
+    line-height: 38px !important;
+}
+.van-dialog__footer{
+    align-items: center;
+    height: 5rem;
+}
+.van-button{
+    font-size: 3rem !important;
+}
+.input{
+    font-size: 3rem !important;
+}
+.van-field__label{
+    width: 3.2em !important;
+}
+.van-button::before{
+    background-color:transparent!important;
+}
+.text_width{
+  width: 120%;
+}
+.van-field__error-message{
+  font-size: 40px !important;
+}
+.van-toast{
+    width: 20rem !important;
+    min-height: 20rem !important;
+    font-size: 3rem !important;
+}
+.van-toast__icon {
+    font-size: 6rem !important;
+}

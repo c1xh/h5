@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" content="user-scalable=0">
+    <!-- 先引入 Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" type="text/css" href="../src/css/style.css">
+     <!-- 引入vant -->
+    <link rel="stylesheet"href="https://unpkg.com/vant@2.10.14/lib/index.css"/>
+    <script src="https://unpkg.com/vant@2.10.14/lib/vant.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="page">
+            <div class="head">
+                    <span class="connect" @click="connect">{{con}}</span>
+                <!-- <img src="../src/img/connection.png" class="image_1" alt=""> -->
+                <div class="text-wrapper_1">
+                    <a href="javascript:;" class="text_1">ADDRESS:{{address}}</a>
+                    <div class="text-wrapper_2">
+                        <span class="text_2" v-bind:class="{ text_width:isLong }">{{number}}</span>
+                        <span class="text_3">MH</span>
+                    </div>
+                </div>
+            </div>
+            <div class="title"><span class="text_4">Meto&nbspHero</span></div>
+            <div class="deposit_out">
+                <div class="deposit" @click="deposit">
+                    <img class="image_3" src="../src/img/side.png" alt="">
+                        <img class="image_4" src="../src/img/deposit.png" alt="">
+                        <span class="text_5">{{text}}</span>
+                        <span class="text_6">MH</span>
+                </div>
+            </div>
+            <div class="foot"></div>
+        </div>
+        <van-dialog v-model="show" title="Deposit" :show-cancel-button="true" :before-close="beforeClose"  confirm-button-text="confirm"
+        cancel-button-text="cancel" >
+         <!-- 允许输入数字，调起带符号的纯数字键盘 -->
+          <van-field class="input" v-model="money" type="number" label="money" placeholder="Please enter the amount"  autofocus="autofocus"  ref="getFocus" :error-message=error /> 
+        </van-dialog>
+    </div>
+    </div>
+</body>
+
+<script >
+    new Vue({
+        el: '#app',
+        data: {
+            number:0,
+            show:false,
+            money:'',
+            isLong:false,
+            address:'ADDRESS',
+            text:'Approve',
+            error:'',
+            btnState:'',
+            con:'CONNECT'
+        },
+        methods: {
+            judgeState(){
+            if(this.btnState==='B'){
+                this.text='Deposit'
+            }
+            },
+            deposit() {
+                if(this.text==='Deposit'){
+                this.show=true
+                //每次进入弹出框，自动获取输入框焦点
+                this.$nextTick(function () {
+                this.$refs.getFocus.focus();
+                });
+                }
+                else{
+                    this.$toast({
+                    message: 'Approve',
+                    icon: 'like-o',
+                    });
+                }
+            },
+            //弹出框
+            beforeClose(action, done){
+                if (action === 'confirm') { // 确认
+                    if(this.money===""){//如果没有输入任何数字
+                     this.error='Please enter the amount'
+                     return done(false)
+                    }
+                  else{
+                    this.number=this.money
+                    this.money=""
+                    if(this.number.length>19){
+                        //当数据太长时，自动换行
+                        this.isLong=true
+                    }
+                    this.text='Deposit'
+                    done(); // 关闭提示框
+                  }
+                } else if (action === 'cancel') { // 取消
+                    this.money=""
+                    done(); // 关闭提示框
+                }
+            },
+            //点击connect
+            connect(){
+                if(this.con==='CONNECT'){
+                    this.con='CONNECTED'
+                    //获取地址的异步函数
+                    var p = new Promise((resolve, reject) => {
+                    resolve('ADDRESSJHFHJHSDUGHTUGHUIJFHDJFHHDSGH')
+                    });
+                    //获取金额的异步函数
+                    var x = new Promise((resolve, reject) => {
+                    resolve(5662534)
+                    });
+                    //地址赋值
+                    p.then(value => {
+                        this.address=value
+                    }) 
+                    //金额赋值
+                    x.then(val=>{
+                        this.number=val
+                    })
+                }
+                else{
+                    this.$toast({
+                    message: 'connected',
+                    icon: 'like-o',
+                    });  
+                }
+            }
+        },
+        created() {
+            var p = new Promise((resolve, reject) => {
+                //返回buttonState值
+                resolve('B')
+            });
+            p.then(value => {
+                this.btnState=value
+                this.judgeState()
+            })
+            // 禁用双击放大  谷歌浏览器双击会放大
+            var lastTouchEnd = 0;
+            document.documentElement.addEventListener('touchend', function (event) {
+	            var now = Date.now();
+	            if (now - lastTouchEnd <= 300) {
+		        event.preventDefault();
+	            }
+	            lastTouchEnd = now;
+                }, {
+	            passive: false
+                });
+        },
+       
+    })
+</script>
+
+</html>
